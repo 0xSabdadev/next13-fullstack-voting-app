@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import Menu from '@/components/Menu'
 import Image from 'next/image'
+import Button from '@/components/Button'
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
@@ -15,14 +16,32 @@ export default function Home() {
             </Head>
             <Menu />
             {/* <Header> */}
-            <div>
-                <h1>Ayo Mulai Voting</h1>
-                <h2>Web App Voting No.1 di Indonesia</h2>
+            <div className='flex flex-col place-items-center py-20 space-y-3'>
+                <h1 className='text-5xl mb-2 font-bold'>Ayo Mulai Voting</h1>
+                <h2 className='text-md bg-zinc-100 px-3 py-1 rounded-md'>
+                    Web App Voting <span className='font-bold'>No.1</span> di Indonesia
+                </h2>
                 <Image
                     src={'/assets/header.svg'}
                     width={'274'}
+                    style={{marginTop: '30px', marginBottom: '30px'}}
                     height={'243'}
                     alt={'header-img'}></Image>
+                <div className='space-x-10 '>
+                    <Button
+                        text={'Buat Voting Baru'}
+                        nameClass={'font-bold'}
+                        width={'w-[160px]'}
+                        fontSize={'14px'}
+                    />
+                    <Button
+                        text={'Ikut Voting'}
+                        type={'secondary'}
+                        nameClass={'font-bold'}
+                        width={'w-[160px]'}
+                        fontSize={'14px'}
+                    />
+                </div>
             </div>
             {/* </Header> */}
             <main></main>
