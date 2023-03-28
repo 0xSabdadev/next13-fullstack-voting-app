@@ -4,6 +4,7 @@ import Menu from '@/components/Menu'
 import Image from 'next/image'
 import Button from '@/components/Button'
 import {LinkIcon, TrashIcon} from '@heroicons/react/24/solid'
+import Link from 'next/link'
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
             </Head>
             <Menu />
             {/* <Header> */}
-            <div className='flex flex-col place-items-center py-20 space-y-3 px-10'>
+            <div className='flex flex-col place-items-center py-20 space-y-3 px-20'>
                 <h1 className='text-5xl mb-2 font-bold'>Ayo Mulai Voting</h1>
                 <h2 className='text-md bg-zinc-100 px-3 py-1 rounded-md'>
                     Web App Voting <span className='font-bold'>No.1</span> di Indonesia
@@ -30,6 +31,7 @@ export default function Home() {
                     alt={'header-img'}></Image>
                 <div className='space-x-10 '>
                     <Button
+                        url={'/vote/create'}
                         text={'Buat Voting Baru'}
                         nameClass={'font-bold'}
                         width={'w-[160px]'}
@@ -46,7 +48,7 @@ export default function Home() {
             </div>
             {/* </Header> */}
             {/* <Table> */}
-            <div className='px-10'>
+            <div className='px-20'>
                 <p className='py-5 text-lg font-bold'>Daftar Vote Terbuat</p>
                 <table className='table-auto w-full border border-zinc-100'>
                     <thead>
@@ -70,14 +72,14 @@ export default function Home() {
                             <td className='p-5 text-center'>22 Oct 2022 11:00 AM</td>
                             <td className='p-5 text-center'>
                                 <div>
-                                    <a href='#'>
+                                    <Link href={'#'}>
                                         <LinkIcon className='w-8 h-8 p-2 hover:text-blue-600' />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div>
-                                    <a href='#'>
+                                    <Link href={'#'}>
                                         <TrashIcon className='w-8 h-8 p-2 hover:text-red-600' />
-                                    </a>
+                                    </Link>
                                 </div>
                             </td>
                         </tr>
@@ -85,50 +87,50 @@ export default function Home() {
                 </table>
             </div>
             {/* </Table> */}
-            <main className='px-10'></main>
+            <main className='px-20'></main>
             {/* <Footer/> */}
-            <div>
+            <div className='px-5'>
                 <footer className='bg-white rounded-lg dark:bg-gray-900 m-4'>
                     <div className='w-full container mx-auto p-4 md:px-6 '>
                         <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 ' />
                         <div className='sm:flex sm:items-center sm:justify-between lg:mb-8'>
-                            <a href='#' className='flex items-center mb-4 sm:mb-0'>
+                            <Link href={'/'} className='flex items-center mb-4 sm:mb-0'>
                                 <Image
                                     src={'/assets/jujurly.svg'}
                                     width={'100'}
                                     height={'100'}
                                     alt={'logo-img'}></Image>
-                            </a>
+                            </Link>
                             <ul className='flex flex-wrap items-center mb-6 text-sm font-medium text-black-500 sm:mb-0 dark:text-gray-400'>
                                 <li>
-                                    <a
-                                        href='#'
+                                    <Link
+                                        href={'/vote/create'}
                                         className='mr-4 hover:underline hover:text-gray-600 md:mr-6 '>
                                         Buat Voting
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href='#'
+                                    <Link
+                                        href={'#'}
                                         className='mr-4 hover:underline hover:text-gray-600 md:mr-6'>
                                         Ikut Voting
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href='#'
+                                    <Link
+                                        href={'/'}
                                         className='mr-4 hover:underline hover:text-gray-600 md:mr-6 '>
                                         GitHub Repos
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
 
                         <span className='block text-sm text-gray-500 sm:text-center dark:text-gray-400'>
                             © 2023{' '}
-                            <a href='#' className='hover:underline'>
+                            <Link href={'#'} className='hover:underline'>
                                 Jujurly™
-                            </a>
+                            </Link>
                             . All Rights Reserved.
                         </span>
                     </div>
