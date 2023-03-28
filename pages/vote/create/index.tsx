@@ -9,6 +9,7 @@ import ReactDatePicker, {registerLocale} from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import id from 'date-fns/locale/id'
 import {useState} from 'react'
+import CandidateForm from '@/components/CandidateForm'
 
 registerLocale('id', id)
 
@@ -38,7 +39,7 @@ export default function CreateVote() {
                     {/* <DetailVote> */}
                     <div className='space-y-1'>
                         <h3 className='font-medium text-xl mt-5'>Detail Voting</h3>
-                        <div className='flex flex-col space-y-2'>
+                        <div className='flex flex-col space-y-2 xl:w-2/3'>
                             <label className='text-sm mt-5 font-bold'>Judul</label>
                             <Form
                                 onChange={() => {}}
@@ -48,7 +49,7 @@ export default function CreateVote() {
                             />
                         </div>
 
-                        <div className='flex flex-col space-y-2 mr-1'>
+                        <div className='flex flex-col space-y-2 mr-1 xl:w-2/3'>
                             <label className='text-sm mt-5 font-bold'>Kapan dimulai?</label>
                             <div className='flex flex-row justify-between space-x-5'>
                                 {/* @ts-ignore */}
@@ -76,6 +77,19 @@ export default function CreateVote() {
                         </div>
                     </div>
                     {/* </DetailVote> */}
+                    {/* <Kandidat> */}
+                    <h3 className='font-medium text-xl mt-10'>Kandidat</h3>
+                    <div className='grid gap-4 grid-cols-4 mt-5'>
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                        <CandidateForm />
+                    </div>
+                    {/* </Kandidat> */}
                 </form>
             </div>
             {/* </Header> */}
