@@ -4,8 +4,17 @@ import Image from 'next/image'
 import Button from '@/components/Button'
 import {LinkIcon, TrashIcon} from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import Form from '@/components/Form'
+import ReactDatePicker, {registerLocale} from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import id from 'date-fns/locale/id'
+import {useState} from 'react'
+
+registerLocale('id', id)
 
 export default function CreateVote() {
+    const [startDate, setStartDate] = useState(new Date())
+    const [endDate, setEndDate] = useState(new Date())
     return (
         <div className='container mx-auto '>
             <Head>
@@ -25,12 +34,45 @@ export default function CreateVote() {
                     alt={'vote-img'}></Image>
                 <h1 className='text-4xl mb-2 font-bold '>Buat Voting Baru</h1>
                 <h2>Silakan masukkan data yang dibutuhkan sebelum membuat vote online</h2>
-                <form>
+                <form className='flex flex-col'>
                     {/* <DetailVote> */}
-                    <div>
-                        <h3>Detail Voting</h3>
-                        <div>
-                            <label>Judul</label>
+                    <div className='space-y-1'>
+                        <h3 className='font-medium text-xl mt-5'>Detail Voting</h3>
+                        <div className='flex flex-col space-y-2'>
+                            <label className='text-sm mt-5 font-bold'>Judul</label>
+                            <Form
+                                onChange={() => {}}
+                                value={''}
+                                placeHolder={'Contoh : Voting Calon Gubernur'}
+                                className={'mt-1'}
+                            />
+                        </div>
+
+                        <div className='flex flex-col space-y-2 mr-1'>
+                            <label className='text-sm mt-5 font-bold'>Kapan dimulai?</label>
+                            <div className='flex flex-row justify-between space-x-5'>
+                                {/* @ts-ignore */}
+                                <ReactDatePicker
+                                    locale={'id'}
+                                    showTimeSelect
+                                    selected={startDate}
+                                    onChange={date => date && setStartDate(date)}
+                                    dateFormat={'Pp'}
+                                    minDate={new Date()}
+                                    className={'mt-1 w-full bg-zinc-100 py-2 px-3'}
+                                />
+                                <p className='text-sm font-bold text-center py-3 w-auto'>sampai</p>
+                                {/* @ts-ignore */}
+                                <ReactDatePicker
+                                    locale={'id'}
+                                    showTimeSelect
+                                    selected={startDate}
+                                    onChange={date => date && setEndDate(date)}
+                                    dateFormat={'Pp'}
+                                    minDate={startDate}
+                                    className={'mt-1 w-full bg-zinc-100 py-2 px-3'}
+                                />
+                            </div>
                         </div>
                     </div>
                     {/* </DetailVote> */}
